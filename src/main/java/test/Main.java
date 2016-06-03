@@ -1,26 +1,14 @@
 package test;
 
-import org.reflections.Reflections;
-import org.reflections.scanners.MethodAnnotationsScanner;
-import org.reflections.util.ClasspathHelper;
-import org.reflections.util.ConfigurationBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
-import java.util.Set;
 
 /**
  * Created by dheeraj on 30/5/16.
@@ -53,12 +41,7 @@ public class Main {
         }*/
         AbstractApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
         Main main = context.getBean(Main.class);
-        main.testBean().test();
-    }
-
-    @Bean
-    public TestBean testBean() {
-        return new TestBean();
+        main.testBean.test();
     }
 
 }
